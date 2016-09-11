@@ -31,7 +31,8 @@ def dashboard(request):
             authorformset.save()
             articleformset.save()
             # do something.
-        else if articleformset.is_valid() and authorformset.is_valid() and tagformset.is_valid():
+        elif articleformset.is_valid() and authorformset.is_valid() and tagformset.is_valid():
+            pass
     else:
         articleformset = ArticleFormSet()
         authorformset = AuthorFormSet()
