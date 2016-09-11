@@ -17,4 +17,10 @@ Our front end will be built with AngularJS that will consume our content API moc
 - Create a virtualenv using virtualenvwrapper
     - `mkvirtualenv cavdaily`
 - Install package requirements
-    - pip install -r requirements.txt
+    - `pip install -r requirements.txt`
+
+###Running Django App
+
+- `./mysite/manage.py migrate`
+- `./mysite/manage.py runserver`
+- Go to localhost:8000 in browser
