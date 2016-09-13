@@ -27,11 +27,14 @@ class AuthorForm1(forms.Form):
 	first_name = forms.CharField(max_length=50)
 	last_name = forms.CharField(max_length=50)
 
+
 class AuthorForm2(forms.Form):
 	bio = forms.CharField(max_length=140)
 
+
 class AuthorForm3(forms.Form):
 	academic_year = forms.IntegerField()
+
 
 class AuthorForm4(forms.Form):
 	school = forms.CharField(max_length=40)
