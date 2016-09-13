@@ -38,3 +38,53 @@ class AuthorForm3(forms.Form):
 
 class AuthorForm4(forms.Form):
 	school = forms.CharField(max_length=40)
+
+
+class ArticleForm1(forms.ModelForm):
+
+	class Meta:
+		model = Article
+		fields = ['headline']
+
+
+class ArticleForm2(forms.ModelForm):
+
+	class Meta:
+		model = Article
+		fields = ['abstract']
+
+
+class ArticleForm3(forms.ModelForm):
+
+	class Meta:
+		model = Article
+		fields = ['authors']
+
+
+class ArticleForm4(forms.ModelForm):
+
+	class Meta:
+		model = Article
+		fields = ['copy']
+
+
+class ArticleForm5(forms.ModelForm):
+
+	class Meta:
+		model = Article
+		fields = ['slug']
+
+
+class ArticleForm6(forms.ModelForm):
+
+	class Meta:
+		model = Article
+		fields = ['status']
+
+
+class ArticleForm7(forms.ModelForm):
+
+	class Meta:
+		model = Article
+		fields = ['tags']
+

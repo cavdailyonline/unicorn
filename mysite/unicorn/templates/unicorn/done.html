@@ -11,10 +11,14 @@
 
 {% block content %}
 
-<h2>Thanks for contacting us!</h2>
-
+<h2>Success!</h2>
+make a cooler done page
+<br />
 {% for form in form_data %}
 {{form}}
 {% endfor %}
+
+<br />
+<button type="submit" class="save btn btn-default"><a href="{% url 'dashboard' %}">Home</a></button>
 
 {% endblock %}

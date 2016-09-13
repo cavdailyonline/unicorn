@@ -57,3 +57,11 @@ class AuthorWizard(SessionWizardView):
 		# author = form_dict['author'].save() ...
 		return render_to_response('unicorn/done.html', {'form_data': form_data})
 
+
+class ArticleWizard(SessionWizardView):
+    template_name = "unicorn/article_form.html"
+    def done(self, form_list, **kwargs):
+        form_data = process_form_data(form_list)
+        # author = form_dict['author'].save() ...
+        return render_to_response('unicorn/done.html', {'form_data': form_data})
+
