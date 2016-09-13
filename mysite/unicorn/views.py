@@ -1,7 +1,7 @@
 from .models import Article, Author, Tag
 from django.forms import modelformset_factory
 
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, render_to_response
 
 from formtools.wizard.views import SessionWizardView
 
@@ -54,5 +54,6 @@ class AuthorWizard(SessionWizardView):
 	template_name = "unicorn/author_form.html"
 	def done(self, form_list, **kwargs):
 		form_data = process_form_data(form_list)
-		return render('unicorn/done.html', {'form_data': form_data})
+		# author = form_dict['author'].save() ...
+		return render_to_response('unicorn/done.html', {'form_data': form_data})
 
