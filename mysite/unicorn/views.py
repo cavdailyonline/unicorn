@@ -1,9 +1,15 @@
 from .models import Article, Author, Tag
 from django.forms import modelformset_factory
-
 from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url="login/")
+def home(request):
+    return render(request, 'unicorn/home.html')
+
+
+@login_required(login_url="login/")
 def articleList(request):
     articleList = Article.objects.order_by('created')
     authorList = Author.objects.order_by('last_name')
@@ -38,6 +44,6 @@ def dashboard(request):
         authorformset = AuthorFormSet()
         tagformset = TagFormSet()
     return render(request, 'unicorn/new.html',
-                 {'articleformset': articleformset,
-                        'authorformset': authorformset,
-                        'tagformset': tagformset})
+                  {'articleformset': articleformset,
+                   'authorformset': authorformset,
+                   'tagformset': tagformset})
