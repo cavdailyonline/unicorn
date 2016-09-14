@@ -6,6 +6,7 @@ from django.db import models
 
 
 class Author(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     bio = models.CharField(max_length=140)
@@ -31,6 +32,10 @@ class Tag(models.Model):
     class Meta:
         ordering = ('text',)
 
+class ArticleImage(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    description = models.CharField(max_length=140)
+    image = models.ImageField(upload_to='images', blank=True, null=True)
 
 class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True)
@@ -42,7 +47,7 @@ class Article(models.Model):
     slug = models.SlugField(unique=True)
     status = models.CharField(max_length=15)
     tags = models.ManyToManyField(Tag, related_name='articles')
-    images = models.ImageField(upload_to='images')
+    images = models.ManyToManyField(ArticleImage, blank=True)
 
     class Meta:
         ordering = ('created',)
