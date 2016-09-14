@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0kz874a134g6to8o3yx99c7%27eqv*zhdx#0#m3wmx5+e^#o3j'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'autofixture',
     'bootstrap3',
-    'formtools'
+    'formtools',
+    'storages',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -123,4 +124,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# django-storages
+# https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = ''  # Fill out in local.py only. See local-dist.py.
+AWS_SECRET_ACCESS_KEY = ''  # Fill out in local.py only. See local-dist.py.
+AWS_STORAGE_BUCKET_NAME = ''  # Fill out in local.py only. See local-dist.py.
 

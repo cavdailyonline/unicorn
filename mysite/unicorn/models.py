@@ -42,6 +42,7 @@ class Article(models.Model):
     slug = models.SlugField(unique=True)
     status = models.CharField(max_length=15)
     tags = models.ManyToManyField(Tag, related_name='articles')
+    images = models.ImageField(upload_to='images')
 
     class Meta:
         ordering = ('created',)
