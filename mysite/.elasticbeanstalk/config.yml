@@ -1,0 +1,11 @@
+branch-defaults:
+  default:
+    environment: cavdaily-dev
+    group_suffix: null
+global:
+  application_name: cavdaily
+  default_ec2_keyname: aws-eb
+  default_platform: Python 2.7
+  default_region: us-east-1
+  profile: eb-cli
+  sc: null
