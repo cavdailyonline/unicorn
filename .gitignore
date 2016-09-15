@@ -74,6 +74,7 @@ venv/
 ENV/
 
 db.sqlite3
+images/
 
 local.py
 local.yml

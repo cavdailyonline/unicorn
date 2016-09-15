@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -124,12 +124,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# django-storages
-# https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-AWS_ACCESS_KEY_ID = ''  # Fill out in local.py only. See local-dist.py.
-AWS_SECRET_ACCESS_KEY = ''  # Fill out in local.py only. See local-dist.py.
-AWS_STORAGE_BUCKET_NAME = ''  # Fill out in local.py only. See local-dist.py.
-
