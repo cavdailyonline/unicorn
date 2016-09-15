@@ -23,8 +23,8 @@ DEBUG = True
 DEPLOYMENT = False
 
 
-# If developing locally, save images/statics locally
-# If depolying, save images/statics to s3
+# Save images/statics locally, if not a deployment
+# Save images/statics to s3 if deployment
 if DEPLOYMENT:
     # django-storages
     # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
