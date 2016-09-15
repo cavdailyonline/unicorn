@@ -44,6 +44,10 @@ if DEPLOYMENT:
     AWS_STORAGE_BUCKET_NAME = ''
 
     # Fill in with aws domain (not custom)
+    # Go to aws, elastic beanstalk console
+    # Go to correct region (top right)
+    # Click on the environment
+    # Copy URL listed on page here
     ALLOWED_HOSTS = []
 
 
