@@ -1,3 +1,4 @@
+boto==2.42.0
 Django==1.10.1
 django-autofixture==0.12.1
 django-bootstrap3==7.0.1
