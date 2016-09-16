@@ -7,14 +7,16 @@ API = os.path.join(HERE, 'mysite')
 
 @task
 def test_all(ctx):
-    pep8(ctx)
+    flake(ctx)
     test_api(ctx)
     # TODO: add more as they become available
 
 # PYTHON
 @task(aliases=['flake8'])
-def pep8(ctx, echo=True):
-    ctx.run('pep8 {} {}'.format(API, "--ignore=E402,E501"), echo=echo)
+def flake(ctx, echo=True):
+    # Ignore too long lines with E501 because
+    # it throws and error on every migration file
+    ctx.run('flake8 {} {}'.format(API, "--ignore=E501"), echo=echo)
 
 
 @task
