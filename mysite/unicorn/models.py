@@ -7,7 +7,7 @@ from django.db import models
 
 class Author(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    headshot = models.ImageField(upload_to='images', blank=True, null=True)
+    headshot = models.ImageField(upload_to='headshots', blank=True, null=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     bio = models.CharField(max_length=140)
