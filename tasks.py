@@ -14,7 +14,7 @@ def test_all(ctx):
 # PYTHON
 @task(aliases=['flake8'])
 def flake(ctx, echo=True):
-    ctx.run('flake8 {}'.format(API), echo=echo)
+    ctx.run('pep8 {} {}'.format(API, "--ignore=E402"), echo=echo)
 
 
 @task
