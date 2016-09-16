@@ -43,5 +43,22 @@ class Article(models.Model):
     status = models.CharField(max_length=15)
     tags = models.ManyToManyField(Tag, related_name='articles')
 
+
+    def add_author(self, new_author):
+        self.authors.add(new_author)
+
+    def add_tag(self, new_tag):
+        self.tags.add(new_tag)
+
+    def add_authors(self, author_list):
+        for a in author_list:
+            self.add_author(a)
+        self.save()
+
+    def add_tags(self, tag_list):
+        for t in tag_list:
+            self.add_tag(t)
+        self.save()
+
     class Meta:
         ordering = ('created',)
