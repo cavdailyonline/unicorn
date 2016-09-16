@@ -1,6 +1,5 @@
 from django import forms
 from .models import Article, Author, Tag
-from django.contrib.auth.models import User
 
 
 class ArticleForm(forms.ModelForm):
@@ -21,9 +20,3 @@ class TagForm(forms.ModelForm):
     class Meta:
         model = Tag
         fields = ('text',)
-
-
-class RegisterForm(forms.ModelForm):
-
-    class Meta:
-        model = User
