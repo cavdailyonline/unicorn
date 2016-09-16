@@ -17,10 +17,12 @@ def articleList(request):
                'authorList': authorList, 'tagList': tagList}
     return render(request, 'unicorn/index.html', context)
 
+
 @login_required(login_url="login/")
 def articleDetail(request, slug):
     article = get_object_or_404(Article, slug=slug)
     return render(request, 'unicorn/detail.html', {'article': article})
+
 
 @login_required(login_url="login/")
 def dashboard(request):
@@ -31,13 +33,13 @@ def dashboard(request):
         articleformset = ArticleFormSet(request.POST, request.FILES)
         authorformset = AuthorFormSet(request.POST, request.FILES)
         tagformset = TagFormSet(request.POST, request.FILES)
-        if articleformset.is_valid() and authorformset.is_valid() and tagformset.is_valid():
+        validArticle = articleformset.is_valid()
+        validAuthor = authorformset.is_valid()
+        validTag = tagformset.is_valid()
+        if (validArticle and validAuthor and validTag):
             tagformset.save()
             authorformset.save()
             articleformset.save()
-            # do something.
-        elif articleformset.is_valid() and authorformset.is_valid() and tagformset.is_valid():
-            pass
     else:
         articleformset = ArticleFormSet()
         authorformset = AuthorFormSet()
