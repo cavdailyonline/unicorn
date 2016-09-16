@@ -42,7 +42,7 @@ class ArticleImage(models.Model):
 
 class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    edited = models.DateTimeField(auto_now_add=True)
+    edited = models.DateTimeField(auto_now=True)
     headline = models.CharField(max_length=100)
     abstract = models.TextField(max_length=100)
     authors = models.ManyToManyField(Author, related_name='articles')
