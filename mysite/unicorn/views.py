@@ -4,7 +4,6 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 
 
-@login_required(login_url="login/")
 def home(request):
     return render(request, 'unicorn/home.html')
 
@@ -18,12 +17,12 @@ def articleList(request):
                'authorList': authorList, 'tagList': tagList}
     return render(request, 'unicorn/index.html', context)
 
-
+@login_required(login_url="login/")
 def articleDetail(request, slug):
     article = get_object_or_404(Article, slug=slug)
-    return render(request, 'unicorn/detail.html', {'article': article},)
+    return render(request, 'unicorn/detail.html', {'article': article})
 
-
+@login_required(login_url="login/")
 def dashboard(request):
     ArticleFormSet = modelformset_factory(Article, exclude=())
     AuthorFormSet = modelformset_factory(Author, exclude=())
