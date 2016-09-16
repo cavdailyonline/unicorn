@@ -33,10 +33,12 @@ class Tag(models.Model):
     class Meta:
         ordering = ('text',)
 
+
 class ArticleImage(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     description = models.CharField(max_length=140)
     image = models.ImageField(upload_to='images')
+
 
 class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True)

@@ -11,8 +11,8 @@
 # everyone to see
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''  #  fill this out with a long random string
-                 #  in local.py
+#  fill this out with a long random string in local.py
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # If developing locally, set DEBUG to True
@@ -49,7 +49,3 @@ if DEPLOYMENT:
     # Click on the environment
     # Copy URL listed on page here
     ALLOWED_HOSTS = []
-
-
-
-

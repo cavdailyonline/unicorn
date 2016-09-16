@@ -6,4 +6,3 @@ admin.site.register(Article)
 admin.site.register(Author)
 admin.site.register(Tag)
 admin.site.register(ArticleImage)
-

@@ -7,14 +7,14 @@ API = os.path.join(HERE, 'mysite')
 
 @task
 def test_all(ctx):
-    flake(ctx)
+    pep8(ctx)
     test_api(ctx)
     # TODO: add more as they become available
 
 # PYTHON
 @task(aliases=['flake8'])
-def flake(ctx, echo=True):
-    ctx.run('pep8 {} {}'.format(API, "--ignore=E402"), echo=echo)
+def pep8(ctx, echo=True):
+    ctx.run('pep8 {} {}'.format(API, "--ignore=E402,E501"), echo=echo)
 
 
 @task
