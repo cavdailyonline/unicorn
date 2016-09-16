@@ -75,6 +75,7 @@ ENV/
 
 db.sqlite3
 images/
+headshots/
 
 local.py
 local.yml
