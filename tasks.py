@@ -19,7 +19,7 @@ def flake(ctx, echo=True):
     # Ignore too long lines with E501 because
     # it throws and error on every migration file
     ctx.run('flake8 {} {}'.format(API,
-                                  "--ignore = E501"), echo=echo)
+                                  "--ignore=E501"), echo=echo)
 
 
 @task
