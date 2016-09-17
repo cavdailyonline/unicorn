@@ -17,7 +17,10 @@ class Migration(migrations.Migration):
             name='Article',
             fields=[
                 ('id', models.AutoField(
-                    auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID')),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('edited', models.DateTimeField()),
                 ('headline', models.CharField(max_length=100)),
@@ -34,7 +37,10 @@ class Migration(migrations.Migration):
             name='Author',
             fields=[
                 ('id', models.AutoField(
-                    auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID')),
                 ('first_name', models.CharField(max_length=10)),
                 ('last_name', models.CharField(max_length=10)),
                 ('bio', models.CharField(max_length=140)),
@@ -49,7 +55,10 @@ class Migration(migrations.Migration):
             name='Tag',
             fields=[
                 ('id', models.AutoField(
-                    auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID')),
                 ('text', models.SlugField(max_length=32, unique=True)),
             ],
             options={
