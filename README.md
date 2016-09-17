@@ -1,4 +1,4 @@
-# thecavalierdani
+# unicorn
 CMS and front end app for student news publication
 
 ###Brief 
