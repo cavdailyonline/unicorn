@@ -18,6 +18,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'^unicorn_api', include('unicorn_api.urls')),
     url(r'^unicorn/', include('unicorn.urls')),
     url(r'^admin/', admin.site.urls),
 ]
