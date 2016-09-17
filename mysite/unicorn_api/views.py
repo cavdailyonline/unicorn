@@ -10,14 +10,14 @@ class AuthorViewSet(viewsets.ModelViewSet):
 
     """ Author Resource """
 
-    resource_name = 'authros'
+    resource_name = 'authors'
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
     filter_backends = (
         filters.SearchFilter,
         filters.DjangoFilterBackend,)
-    filter_fields = ('id',)
-
+    search_fields = ('first_name', 'last_name',)
+    filter_fields = ('academic_year', 'school')
 
 class ArticleViewSet(viewsets.ModelViewSet):
 
@@ -29,7 +29,8 @@ class ArticleViewSet(viewsets.ModelViewSet):
     filter_backends = (
         filters.SearchFilter,
         filters.DjangoFilterBackend,)
-    filter_fields = ('id',)
+    search_fields = ('headline', 'abstract','copy','tags',)
+    filter_fields = ('authors','status', 'tags',)
 
 
 class TagViewSet(viewsets.ModelViewSet):
@@ -39,11 +40,8 @@ class TagViewSet(viewsets.ModelViewSet):
     resource_name = 'tags'
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
-    filter_backends = (
-        filters.SearchFilter,
-        filters.DjangoFilterBackend,)
-    filter_fields = ('id',)
-
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('text', 'description')
 
 class ArticleImageViewSet(viewsets.ModelViewSet):
 
@@ -53,6 +51,5 @@ class ArticleImageViewSet(viewsets.ModelViewSet):
     queryset = ArticleImage.objects.all()
     serializer_class = ArticleImageSerializer
     filter_backends = (
-        filters.SearchFilter,
-        filters.DjangoFilterBackend,)
-    filter_fields = ('id',)
+        filters.SearchFilter,)
+    search_fields = ('description',)
