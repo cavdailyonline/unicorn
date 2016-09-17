@@ -4,6 +4,8 @@ from django.db import models
 
 
 class Author(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    headshot = models.ImageField(upload_to='headshots', blank=True, null=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     bio = models.CharField(max_length=140)
@@ -30,9 +32,15 @@ class Tag(models.Model):
         ordering = ('text',)
 
 
+class ArticleImage(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    description = models.CharField(max_length=140)
+    image = models.ImageField(upload_to='images')
+
+
 class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    edited = models.DateTimeField(auto_now_add=True)
+    edited = models.DateTimeField(auto_now=True)
     headline = models.CharField(max_length=100)
     abstract = models.TextField(max_length=100)
     authors = models.ManyToManyField(Author, related_name='articles')
@@ -40,6 +48,7 @@ class Article(models.Model):
     slug = models.SlugField(unique=True)
     status = models.CharField(max_length=15)
     tags = models.ManyToManyField(Tag, related_name='articles')
+    images = models.ManyToManyField(ArticleImage, blank=True)
 
     class Meta:
         ordering = ('created',)
