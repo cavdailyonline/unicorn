@@ -19,9 +19,10 @@ class AuthorViewSet(viewsets.ModelViewSet):
     search_fields = ('first_name', 'last_name',)
     filter_fields = ('academic_year', 'school')
 
+
 class ArticleViewSet(viewsets.ModelViewSet):
 
-    """ Author Resource """
+    """ Article Resource """
 
     resource_name = 'articles'
     queryset = Article.objects.all()
@@ -29,13 +30,13 @@ class ArticleViewSet(viewsets.ModelViewSet):
     filter_backends = (
         filters.SearchFilter,
         filters.DjangoFilterBackend,)
-    search_fields = ('headline', 'abstract','copy','tags',)
-    filter_fields = ('authors','status', 'tags',)
+    search_fields = ('headline', 'abstract', 'copy', 'tags',)
+    filter_fields = ('authors', 'status', 'tags',)
 
 
 class TagViewSet(viewsets.ModelViewSet):
 
-    """ Author Resource """
+    """ Tag Resource """
 
     resource_name = 'tags'
     queryset = Tag.objects.all()
@@ -43,9 +44,10 @@ class TagViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.SearchFilter,)
     search_fields = ('text', 'description')
 
+
 class ArticleImageViewSet(viewsets.ModelViewSet):
 
-    """ Author Resource """
+    """ ArticleImage Resource """
 
     resource_name = 'article_images'
     queryset = ArticleImage.objects.all()

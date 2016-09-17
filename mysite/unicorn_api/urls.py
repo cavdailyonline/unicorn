@@ -41,5 +41,6 @@ urlpatterns = [
     url(r'^tags/$', tag_list, name='tag_list'),
     url(r'^tags/(?P<pk>[-\w]+)/$', tag_detail, name='tag_detail'),
     url(r'^article_images/$', article_image_list, name='article_image_list'),
-    url(r'^article_images/(?P<pk>[-\w]+)/$', article_image_detail, name='article_image_detail')
+    url(r'^article_images/(?P<pk>[-\w]+)/$',
+        article_image_detail, name='article_image_detail')
 ]
