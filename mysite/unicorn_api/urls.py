@@ -34,12 +34,12 @@ article_image_detail = views.ArticleImageViewSet.as_view({
 })
 
 urlpatterns = [
-    url(r'^authors/$', author_list, name='list'),
-    url(r'^authors/(?P<pk>[-\w]+)/$', author_detail, name='detail'),
-    url(r'^articles/$', article_list, name='list'),
-    url(r'^articles/(?P<pk>[-\w]+)/$', article_detail, name='detail'),
-    url(r'^tags/$', tag_list, name='list'),
-    url(r'^tags/(?P<pk>[-\w]+)/$', tag_detail, name='detail'),
-    url(r'^article_images/$', article_image_list, name='list'),
-    url(r'^article_images/(?P<pk>[-\w]+)/$', article_image_detail, name='detail')
+    url(r'^authors/$', author_list, name='author_list'),
+    url(r'^authors/(?P<pk>[-\w]+)/$', author_detail, name='author_detail'),
+    url(r'^articles/$', article_list, name='article_list'),
+    url(r'^articles/(?P<pk>[-\w]+)/$', article_detail, name='article_detail'),
+    url(r'^tags/$', tag_list, name='tag_list'),
+    url(r'^tags/(?P<pk>[-\w]+)/$', tag_detail, name='tag_detail'),
+    url(r'^article_images/$', article_image_list, name='article_image_list'),
+    url(r'^article_images/(?P<pk>[-\w]+)/$', article_image_detail, name='article_image_detail')
 ]
