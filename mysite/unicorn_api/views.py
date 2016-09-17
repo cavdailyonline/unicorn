@@ -5,6 +5,7 @@ from .serializers import (AuthorSerializer,
                           ArticleSerializer, TagSerializer,
                           ArticleImageSerializer)
 
+
 class AuthorViewSet(viewsets.ModelViewSet):
 
     """ Author Resource """
@@ -16,6 +17,7 @@ class AuthorViewSet(viewsets.ModelViewSet):
         filters.SearchFilter,
         filters.DjangoFilterBackend,)
     filter_fields = ('id',)
+
 
 class ArticleViewSet(viewsets.ModelViewSet):
 
