@@ -18,6 +18,7 @@ Our front end will be built with AngularJS that will consume our content API moc
     - `mkvirtualenv cavdaily`
 - Install package requirements
     - `pip install -r requirements.txt`
+- Copy `mysite/settings/local-dist.py` into `mysite/settings/local.py` and fill in fields
 
 ###Running Django App
 

@@ -38,6 +38,6 @@ def dashboard(request):
         authorformset = AuthorFormSet()
         tagformset = TagFormSet()
     return render(request, 'unicorn/new.html',
-                 {'articleformset': articleformset,
-                        'authorformset': authorformset,
-                        'tagformset': tagformset})
+                  {'articleformset': articleformset,
+                   'authorformset': authorformset,
+                   'tagformset': tagformset})
