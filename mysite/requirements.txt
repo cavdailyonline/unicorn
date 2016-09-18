@@ -7,9 +7,10 @@ django-filter==0.14.0
 django-formtools==1.0
 django-storages==1.5.1
 djangorestframework==3.4.6
-Markdown==2.6.6
+enum34==1.1.6
 flake8==3.0.4
 invoke==0.13.0
+Markdown==2.6.6
 mccabe==0.5.2
 Pillow==3.3.1
 pycodestyle==2.0.0
