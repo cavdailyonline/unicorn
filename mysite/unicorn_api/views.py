@@ -31,7 +31,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
         filters.SearchFilter,
         filters.DjangoFilterBackend,)
     search_fields = ('headline', 'abstract', 'copy', 'tags',)
-    filter_fields = ('authors', 'status', 'tags',)
+    filter_fields = ('authors', 'status', 'tags', 'created',)
 
 
 class TagViewSet(viewsets.ModelViewSet):

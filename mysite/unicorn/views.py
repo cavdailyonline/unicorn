@@ -1,9 +1,14 @@
 from .models import Article, Author, Tag
 from django.forms import modelformset_factory
-
 from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.decorators import login_required
 
 
+def home(request):
+    return render(request, 'unicorn/home.html')
+
+
+@login_required(login_url="login/")
 def articleList(request):
     articleList = Article.objects.order_by('created')
     authorList = Author.objects.order_by('last_name')
@@ -13,11 +18,13 @@ def articleList(request):
     return render(request, 'unicorn/index.html', context)
 
 
+@login_required(login_url="login/")
 def articleDetail(request, slug):
     article = get_object_or_404(Article, slug=slug)
-    return render(request, 'unicorn/detail.html', {'article': article},)
+    return render(request, 'unicorn/detail.html', {'article': article})
 
 
+@login_required(login_url="login/")
 def dashboard(request):
     ArticleFormSet = modelformset_factory(Article, exclude=())
     AuthorFormSet = modelformset_factory(Author, exclude=())
@@ -26,18 +33,18 @@ def dashboard(request):
         articleformset = ArticleFormSet(request.POST, request.FILES)
         authorformset = AuthorFormSet(request.POST, request.FILES)
         tagformset = TagFormSet(request.POST, request.FILES)
-        if articleformset.is_valid() and authorformset.is_valid() and tagformset.is_valid():
+        validArticle = articleformset.is_valid()
+        validAuthor = authorformset.is_valid()
+        validTag = tagformset.is_valid()
+        if (validArticle and validAuthor and validTag):
             tagformset.save()
             authorformset.save()
             articleformset.save()
-            # do something.
-        elif articleformset.is_valid() and authorformset.is_valid() and tagformset.is_valid():
-            pass
     else:
         articleformset = ArticleFormSet()
         authorformset = AuthorFormSet()
         tagformset = TagFormSet()
     return render(request, 'unicorn/new.html',
-                 {'articleformset': articleformset,
-                        'authorformset': authorformset,
-                        'tagformset': tagformset})
+                  {'articleformset': articleformset,
+                   'authorformset': authorformset,
+                   'tagformset': tagformset})

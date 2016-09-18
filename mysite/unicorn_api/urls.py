@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from unicorn import views
+from unicorn_api import views
 
 author_list = views.AuthorViewSet.as_view({
     'get': 'list',

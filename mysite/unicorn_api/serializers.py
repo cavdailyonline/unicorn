@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
 from unicorn.models import Author, Article, Tag, ArticleImage
-from submissions.models import Submission
 from django.contrib.auth.models import User
 
 
