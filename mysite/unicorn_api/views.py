@@ -4,6 +4,9 @@ from unicorn.models import Author, Article, Tag, ArticleImage
 from .serializers import (AuthorSerializer,
                           ArticleSerializer, TagSerializer,
                           ArticleImageSerializer)
+from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
+from rest_framework.decorators import api_view, renderer_classes
+from rest_framework import response, schemas
 
 
 class AuthorViewSet(viewsets.ModelViewSet):
@@ -55,3 +58,11 @@ class ArticleImageViewSet(viewsets.ModelViewSet):
     filter_backends = (
         filters.SearchFilter,)
     search_fields = ('description',)
+
+
+# For django-rest-swagger docs
+@api_view()
+@renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
+def schema_view(request):
+    generator = schemas.SchemaGenerator(title='Pastebin API')
+    return response.Response(generator.get_schema(request=request))

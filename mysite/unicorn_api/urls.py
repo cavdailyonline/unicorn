@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from unicorn_api import views
 
 author_list = views.AuthorViewSet.as_view({
@@ -34,6 +34,7 @@ article_image_detail = views.ArticleImageViewSet.as_view({
 })
 
 urlpatterns = [
+    url(r'^', views.schema_view),
     url(r'^authors/$', author_list, name='author-list'),
     url(r'^authors/(?P<pk>[-\w]+)/$', author_detail, name='author-detail'),
     url(r'^articles/$', article_list, name='article-list'),
