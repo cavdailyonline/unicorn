@@ -16,7 +16,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Article',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID')),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('edited', models.DateTimeField(auto_now=True)),
                 ('headline', models.CharField(max_length=100)),
@@ -41,11 +45,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Author',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('headshot', models.ImageField(blank=True, null=True, upload_to='headshots')),
-                ('first_name', models.CharField(max_length=50)),
-                ('last_name', models.CharField(max_length=50)),
+                ('id', models.AutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID')),
+                ('first_name', models.CharField(max_length=10)),
+                ('last_name', models.CharField(max_length=10)),
                 ('bio', models.CharField(max_length=140)),
                 ('academic_year', models.IntegerField()),
                 ('school', models.CharField(max_length=40)),
@@ -57,7 +63,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Tag',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID')),
                 ('text', models.SlugField(max_length=32, unique=True)),
                 ('description', models.CharField(default='', max_length=140)),
             ],
