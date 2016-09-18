@@ -1,7 +1,5 @@
 from rest_framework import serializers
-
 from unicorn.models import Author, Article, Tag, ArticleImage
-from django.contrib.auth.models import User
 
 
 class AuthorSerializer(serializers.ModelSerializer):
