@@ -1,5 +1,5 @@
 # unicorn
-CMS and front end app for student news publication
+Content Management System for student news publications
 
 ###Brief 
 The Cavalier Daily, a student news publication at the University of Virginia, is undertaking this project to create a
