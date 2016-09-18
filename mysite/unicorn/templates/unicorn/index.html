@@ -15,7 +15,7 @@
 			    <ul>
 				    {% for article in articleList %}
 					    <li>
-					    	<h3><a href="/unicorn/{{ article.slug }}/">{{ article.headline }}</a></h3>
+					    	<h3><a href="/article/{{ article.slug }}/">{{ article.headline }}</a></h3>
 					    	<ul>
 					    		<li>Tags</li>
 					        {% for tag in article.tags.all %}
