@@ -10,5 +10,4 @@ install:
 
 script:
     # Run fake8 and ignore too long lines
-    - flake8 --ignore=E501
-    - python mysite/manage.py test
+    - invoke test_all
