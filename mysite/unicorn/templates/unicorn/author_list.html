@@ -13,7 +13,7 @@
 			<h2>Author List </h2>
 			{% if author_list %}
 				{% for author in author_list%}
-					<h4>{{author.last_name}}, {{author.first_name}}</h4>
+					<h4><a href="/authors/{{author.pk}}">{{author.last_name}}, {{author.first_name}}</a></h4>
 				{% endfor %}
 			{% else %}
 				<p>No Authors are available</p>

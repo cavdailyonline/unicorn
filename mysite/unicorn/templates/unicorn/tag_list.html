@@ -13,7 +13,7 @@
 			<h2>Tag List </h2>
 			{% if tag_list %}
 				{% for tag in tag_list%}
-					<h4>{{tag.text}}</h4>
+					<h4><a href="/tags/{{tag.slug}}">{{tag.slug}}</a></h4>
 				{% endfor %}
 			{% else %}
 				<p>No Tags are available</p>

@@ -21,15 +21,15 @@ class Author(models.Model):
 
 
 class Tag(models.Model):
-    text = models.SlugField(max_length=32, unique=True)
+    slug = models.SlugField(max_length=32, unique=True)
     description = models.CharField(max_length=140, default="")
 
     def __str__(self):
-        return '{text}'.format(
-            text=self.text)
+        return '{slug}'.format(
+            slug=self.slug)
 
     class Meta:
-        ordering = ('text',)
+        ordering = ('slug',)
 
 
 class ArticleImage(models.Model):
