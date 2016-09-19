@@ -24,9 +24,8 @@ class Tag(models.Model):
     slug = models.SlugField(max_length=32, unique=True)
     description = models.CharField(max_length=140, default="")
 
-    def __str__(self):
-        return '{slug}'.format(
-            slug=self.slug)
+    def __unicode__(self):
+        return '%s: %s' % (self.slug, self.description)
 
     class Meta:
         ordering = ('slug',)
