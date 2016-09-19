@@ -10,7 +10,22 @@ class Author(models.Model):
     last_name = models.CharField(max_length=50)
     bio = models.CharField(max_length=140)
     academic_year = models.IntegerField()
-    school = models.CharField(max_length=40)
+    SCHOOL_CHOICES = (
+        ("SEAS", "School of Engineering and Applied Sciences"),
+        ("BATTEN", "Frank Batten School of Leadership and Public Policy"),
+        ("CLAS", "College of Arts and Sciences"),
+        ("CURRY", "Curry School of Education"),
+        ("Darden", "Darden School of Business"),
+        ("COMM", "McIntire School of Commerce"),
+        ("SARC", "School of Architecture"),
+        ("SCPS", "School of Continuing and Professional Studies"),
+        ("LAW", "School of Law"),
+        ("MED", "School of Medicine"),
+        ("NURSE", "School of Nursing"),
+    )
+    school = models.CharField(
+        max_length=1,
+        choices=SCHOOL_CHOICES)
 
     def __str__(self):
         return '{first} {last}'.format(
