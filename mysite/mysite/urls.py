@@ -19,7 +19,8 @@ from django.contrib import admin
 from django.contrib.auth import views
 
 urlpatterns = [
+    url(r'^', include('unicorn.urls')),
+    url(r'^unicorn_api/', include('unicorn_api.urls')),
     url(r'^login/', views.login, name='login'),
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('unicorn.urls'))
 ]
