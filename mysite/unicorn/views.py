@@ -1,50 +1,29 @@
 from .models import Article, Author, Tag
-from django.forms import modelformset_factory
-from django.shortcuts import get_object_or_404, render
-from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView, DetailView
 
 
-def home(request):
-    return render(request, 'unicorn/home.html')
+class ArticleList(ListView):
+    model = Article
+    context_object_name = 'article_list'
 
 
-@login_required(login_url="login/")
-def articleList(request):
-    articleList = Article.objects.order_by('created')
-    authorList = Author.objects.order_by('last_name')
-    tagList = Tag.objects.order_by('text')
-    context = {'articleList': articleList,
-               'authorList': authorList, 'tagList': tagList}
-    return render(request, 'unicorn/index.html', context)
+class ArticleDetail(DetailView):
+    model = Article
 
 
-@login_required(login_url="login/")
-def articleDetail(request, slug):
-    article = get_object_or_404(Article, slug=slug)
-    return render(request, 'unicorn/detail.html', {'article': article})
+class AuthorList(ListView):
+    model = Author
+    context_object_name = 'author_list'
 
 
-@login_required(login_url="login/")
-def dashboard(request):
-    ArticleFormSet = modelformset_factory(Article, exclude=())
-    AuthorFormSet = modelformset_factory(Author, exclude=())
-    TagFormSet = modelformset_factory(Tag, exclude=())
-    if request.method == 'POST':
-        articleformset = ArticleFormSet(request.POST, request.FILES)
-        authorformset = AuthorFormSet(request.POST, request.FILES)
-        tagformset = TagFormSet(request.POST, request.FILES)
-        validArticle = articleformset.is_valid()
-        validAuthor = authorformset.is_valid()
-        validTag = tagformset.is_valid()
-        if (validArticle and validAuthor and validTag):
-            tagformset.save()
-            authorformset.save()
-            articleformset.save()
-    else:
-        articleformset = ArticleFormSet()
-        authorformset = AuthorFormSet()
-        tagformset = TagFormSet()
-    return render(request, 'unicorn/new.html',
-                  {'articleformset': articleformset,
-                   'authorformset': authorformset,
-                   'tagformset': tagformset})
+class AuthorDetail(DetailView):
+    model = Author
+
+
+class TagList(ListView):
+    model = Tag
+    context_object_name = 'tag_list'
+
+
+class TagDetail(DetailView):
+    model = Tag
