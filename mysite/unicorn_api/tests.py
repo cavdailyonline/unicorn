@@ -35,7 +35,7 @@ class GetArticleTest(APITestCase):
     def setUp(self):
         tag_data = {
             "description": "This is a test.",
-            "text": "helloworld"
+            "slug": "helloworld"
         }
         article_image_data = {
             "description": "helloworld",
@@ -81,7 +81,7 @@ class GetTagTest(APITestCase):
 
     def setUp(self):
         data = {
-            "text": "helloworld",
+            "slug": "helloworld",
             "description": "This is a test"
         }
         self.tag = Tag(**data)
