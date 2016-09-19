@@ -8,16 +8,19 @@ class AuthorSerializer(serializers.ModelSerializer):
         model = Author
 
 
+class TagSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Tag
+
+
 class ArticleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Article
 
-
-class TagSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Tag
+    tags = TagSerializer(many=True)
+    authors = AuthorSerializer(many=True)
 
 
 class ArticleImageSerializer(serializers.ModelSerializer):
