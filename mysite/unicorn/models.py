@@ -24,7 +24,7 @@ class Author(models.Model):
         ("NURSE", "School of Nursing"),
     )
     school = models.CharField(
-        max_length=1,
+        max_length=100,
         choices=SCHOOL_CHOICES)
 
     def __str__(self):
