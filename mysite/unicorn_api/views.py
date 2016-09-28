@@ -6,7 +6,7 @@ from .serializers import (AuthorSerializer,
                           ArticleImageSerializer)
 from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
 from rest_framework.decorators import api_view, renderer_classes
-from rest_framework import response, schemas
+from rest_framework import response, schemas, permissions
 
 
 class AuthorViewSet(viewsets.ModelViewSet):
@@ -16,6 +16,7 @@ class AuthorViewSet(viewsets.ModelViewSet):
     resource_name = 'authors'
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     filter_backends = (
         filters.SearchFilter,
         filters.DjangoFilterBackend,)
@@ -30,6 +31,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
     resource_name = 'articles'
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     filter_backends = (
         filters.SearchFilter,
         filters.DjangoFilterBackend,)
@@ -43,6 +45,7 @@ class TagViewSet(viewsets.ModelViewSet):
 
     resource_name = 'tags'
     queryset = Tag.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     serializer_class = TagSerializer
     filter_backends = (filters.SearchFilter,)
     search_fields = ('text', 'description')
@@ -54,6 +57,7 @@ class ArticleImageViewSet(viewsets.ModelViewSet):
 
     resource_name = 'article_images'
     queryset = ArticleImage.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     serializer_class = ArticleImageSerializer
     filter_backends = (
         filters.SearchFilter,)
