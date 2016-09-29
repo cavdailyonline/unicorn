@@ -1,0 +1,41 @@
+{
+  "name": "the-cavalier-dani",
+  "version": "0.0.1",
+  "description": "Cavalier Daily Frontend Web App",
+  "scripts": {
+    "start": "node server/app.js"
+  },
+  "engines": {
+    "node": ">=4.1.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bower": "^1.7.9",
+    "browser-sync": "^2.16.0",
+    "bunyan": "^1.8.1",
+    "debug": "^2.2.0",
+    "errorhandler": "^1.4.3",
+    "express": "^4.14.0",
+    "express-validator": "^2.20.8",
+    "gulp": "^3.9.1",
+    "gulp-bump": "^2.4.0",
+    "gulp-cache": "^0.4.5",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-flatten": "^0.3.1",
+    "gulp-git": "^1.11.3",
+    "gulp-jshint": "^2.0.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-tag-version": "^1.3.0",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.3",
+    "morgan": "^1.7.0",
+    "run-sequence": "^1.2.2"
+  },
+  "devDependencies": {
+    "shelljs": "^0.3.0"
+  }
+}

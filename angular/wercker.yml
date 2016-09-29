@@ -1,0 +1,43 @@
+box: nodesource/trusty
+# 15 min timeout
+no-response-timeout: 15
+# Build definition
+build:
+  # The steps that will be executed on build
+  steps:
+
+    # A step that executes `npm install` command
+    - npm-install
+
+    - script:
+        name: gulp global install
+        code: |
+          npm install gulp -g
+
+    # A custom script step, name value is used in the UI
+    - script:
+        name: gulp wercker
+        code: |
+          gulp wercker
+
+    # A script to remove node modules used for the build
+    - script:
+        name: remove node modules
+        code: |
+          rm -rf node_modules
+
+    # A script to remove assets
+    - script:
+        name: remove assets
+        code: |
+          rm -rf assets
+
+deploy:
+    steps:
+
+    # Execute the s3sync deploy step, a step provided by wercker
+    - s3sync:
+        key-id: $AWS_ACCESS
+        key-secret: $AWS_SECRET
+        bucket-url: $S3_BUILD_BUCKET_URL
+        source-dir: $SOURCE

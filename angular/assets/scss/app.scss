@@ -1,0 +1,16 @@
+// Nice default color schemes go here
+$light:                           #FFF !default;
+$stable:                          #99CA25 !default; // Green
+$positive:                        #4678F6 !default; // Blue
+$calm:                            #CAC2B9 !default; // Medium Tan Base
+$balanced:                        #D8DBE2 !default; //
+$energized:                       #FFBD00 !default; // Yellow
+$assertive:                       #EE4B3F !default; // Red
+$royal:                           #9957F0 !default; // Purple
+$dark:                            #444 !default;
+
+// Extras
+
+// Site scss
+@import "./partials/all";
+@import "./partials/search";

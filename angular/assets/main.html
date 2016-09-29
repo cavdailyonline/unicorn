@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title ng-bind="$root.appTitle"></title>
+    <base href="/">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Cav Daily CSS -->
+    <link href="app.min.css" rel="stylesheet">
+    <!-- Cav Daily Icon -->
+    <link rel="shortcut icon" href="img/favicon.ico"/>
+    <!-- All Javascript plugins -->
+    <script src="/addons"></script>
+    <!-- Cav Daily Angular APp -->
+    <script src="/appjs"></script>
+  </head>
+
+  <body ng-controller="AppCtrl">
+    <main>
+      <div class="content-container" ui-view>
+      </div>
+    </main>
+
+    <!-- BROWSER SYNC -->
+    <script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.16.0'><\/script>".replace("HOST", location.hostname));
+    //]]></script>
+  </body>
+</html>
