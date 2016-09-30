@@ -25,4 +25,4 @@ Our front end will be built with AngularJS that will consume our content API moc
 - `./mysite/manage.py migrate`
 - `./mysite/manage.py runserver`
 - `./mysite/manage.py createsuperuser`
-- Go to localhost:8000 in browser
+- Go to <a href="http://localhost:8000" target="_blank">localhost:8000</a> in browser
