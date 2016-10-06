@@ -144,6 +144,3 @@ APPEND_SLASH = True
 CORS_ORIGIN_WHITELIST = (
     'localhost:4200',
 )
-
-
-
