@@ -1,22 +1,17 @@
-from django import forms
-from .models import Article, Author, Tag
+from django.forms import ModelForm
+from django.forms.models import inlineformset_factory
+
+from .models import Article, Author, Tag, ArticleAuthor, ArticleTag
 
 
-class ArticleForm(forms.ModelForm):
+class ArticleForm(ModelForm):
 
     class Meta:
         model = Article
+        exclude = ('created', 'edited',)
 
 
-class AuthorForm(forms.ModelForm):
-
-    class Meta:
-        model = Author
-        fields = ('first_name', 'last_name', 'bio', 'academic_year', 'school')
-
-
-class TagForm(forms.ModelForm):
-
-    class Meta:
-        model = Tag
-        fields = ('text',)
+AuthorFormSet = inlineformset_factory(Author, ArticleAuthor,
+                                      fields=('article',))
+TagFormSet = inlineformset_factory(
+    Tag, ArticleTag, exclude=('tag', 'article', 'test',))

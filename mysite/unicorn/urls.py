@@ -2,7 +2,10 @@ from django.conf.urls import url
 from django.contrib.auth.decorators import login_required
 from . import views
 
+from .forms import *
+
 urlpatterns = [
+    url(r'^new/*', views.ArticleCreateView.as_view()),
     url(r'^articles/$', login_required(views.ArticleList.as_view()),
         name='Article List'),
     url(r'^articles/(?P<slug>[-\w]+)/$',
