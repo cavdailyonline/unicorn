@@ -49,3 +49,8 @@ if DEPLOYMENT:
     # Click on the environment
     # Copy URL listed on page here
     ALLOWED_HOSTS = []
+
+    # Put domain of Angular App here to allow browser to make cross-origin requests
+    CORS_ORIGIN_WHITELIST = (
+        '',
+    )
