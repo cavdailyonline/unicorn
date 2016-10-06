@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'formtools',
     'storages',
+    'corsheaders',
     'rest_framework',
     'rest_framework_swagger',
 ]
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -134,3 +136,14 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'  # It means home view
 
 APPEND_SLASH = True
+
+
+# CORS Configuration
+# https://github.com/ottoyiu/django-cors-headers
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:4200',
+)
+
+
+
