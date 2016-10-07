@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework_swagger',
+    'djng'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -130,7 +131,7 @@ USE_TZ = True
 
 MEDIA_URL = '/files/'
 MEDIA_ROOT = 'files/'
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'  # It means home view
