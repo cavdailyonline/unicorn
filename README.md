@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/cavdailyonline/unicorn.svg?branch=develop)](https://travis-ci.org/cavdailyonline/unicorn)
 # unicorn
 Content Management System for student news publications
 
