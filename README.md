@@ -28,5 +28,8 @@ Our front end will be built with AngularJS that will consume our content API moc
 - `./mysite/manage.py createsuperuser`
 - Go to <a href="http://localhost:8000" target="_blank">localhost:8000</a> in browser
 
+###API Docs
+- Go to  <a href="http://localhost:8000/api/" target="_blank">localhost:8000/api/</a> in browser
+
 ###Running tests
 - `invoke test_all`
