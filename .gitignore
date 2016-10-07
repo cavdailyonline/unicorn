@@ -84,7 +84,7 @@ local.yml
 # dependencies
 /node_modules
 /bower_components
-
+/angular/node_modules
 # misc
 /.sass-cache
 /connect.lock
