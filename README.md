@@ -28,6 +28,9 @@ Our front end will be built with AngularJS that will consume our content API moc
 - `./mysite/manage.py createsuperuser`
 - Go to <a href="http://localhost:8000" target="_blank">localhost:8000</a> in browser
 
+###Running Angular App
+- See [unicorn sub-directory](https://github.com/cavdailyonline/unicorn/tree/develop/unicorn)
+
 ###API Docs
 - Go to  <a href="http://localhost:8000/api/" target="_blank">localhost:8000/api/</a> in browser
 
