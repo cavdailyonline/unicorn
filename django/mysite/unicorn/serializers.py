@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from unicorn.models import Author, Article, Tag, ArticleImage
+from .models import Author, Article, Tag, ArticleImage
 
 
 class AuthorSerializer(serializers.ModelSerializer):
@@ -18,9 +18,6 @@ class ArticleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Article
-
-    tags = TagSerializer(many=True)
-    authors = AuthorSerializer(many=True)
 
 
 class ArticleImageSerializer(serializers.ModelSerializer):

@@ -2,7 +2,7 @@ import os
 from invoke import task
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-APP = os.path.join(HERE, 'mysite')
+APP = os.path.join(HERE, 'django', 'mysite')
 
 
 @task

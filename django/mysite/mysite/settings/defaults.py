@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'unicorn.apps.UnicornConfig',
-    'unicorn_api.apps.UnicornApiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +45,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework_swagger',
-    'djng'
 ]
 
 MIDDLEWARE_CLASSES = [
