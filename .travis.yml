@@ -1,13 +1,27 @@
-language: python
-python:
-  - "2.7"
-  # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
-  # maintainers to fix their pypy-dev package.
-# command to install dependencies
+sudo: required
+language: node_js
+node_js:
+  - '4.2'
 install:
-  - pip install -r django/mysite/requirements.txt
-  - pip install flake8
-
+- sudo apt-get install python3-pip
+- pip3 install -r django/mysite/requirements.txt
+- pip3 install flake8
+- cd unicorn
+- npm install -g angular-cli
+- npm install
+- cd ..
 script:
-    # Run fake8 and ignore too long lines
-    - invoke test_all
+- invoke test_all
+before_deploy:
+- cd unicorn
+- ng build
+deploy:
+  provider: s3
+  access_key_id: AKIAJFYC376KVHVY3PTA
+  secret_access_key:
+    secure: OFiCSmIQMYtdkj9tZw/08XkQFsBXrRxB9jWIoj0tXuXy1KomKzm2d74KrtNbEfmAcRHaR/2xmXIRcZANW35v9/buxrNWkLvFGPAVt5n8hyMeel397xClrVG1/+pz1K2VgHEA9pHryQPDU5vh4qRZ2AhuSyaa4+i8KulbiEFfOIk1gTDo8hMpHwGrTuuPFdBUU0hOsPA+azmZpipCWTDU7EQTY0THXwUQjCeGRk1soKRtl28eq44jX3a1UqEY+LughhKnAQ7o25nztVRUraBTef+Gnz5SCfF3SzTSDofmFa5jmIN4s3/7nj9H/vcVzASpu2R/9BjrqhqHXFnxqx3eFZRi+xIECogLZQ6UZqZ6sXfHjIn9wGdiT4c8/6sacPl16THAHW9wnvHzvZhkmii6oH08Kt8eYnNPNL8LuAsCAHtout6rjjyZU0piTmlGYj+U5lL2jJ6SKd3Cy25pPrmndy2gya2jtOrMyYe04QSmEOo0D8eqaE6VBwojio3UyDWXIGJXs+L+EDgblTosrxm6Iq+KvIPw+rdqQIi988nu/qIRPVgRQzd0GC/8jAudFHj/dI3J+W9v4GupLmr8sq25iE22CB3rNVuSHlpOKo0b8TC5ycfHKY/qP4xtXFDrEVGOEpKVHw6gLRTRXUjZFqfzMpg20sraVAZkWRrNI8Tq1TI=
+  bucket: cavalierdani-angular
+  local-dir: unicorn/build
+  acl: public_read
+  on:
+    branch: angular_continous_deployment
