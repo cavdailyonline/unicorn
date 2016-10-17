@@ -1,5 +1,12 @@
   <ul>
     <li *ngFor="let article of articles">
+    <a href="#" [routerLink]="['/articles', article.slug]">
       {{article.headline}}
+      </a>
+      <ul>
+      	<li *ngFor="let author of article.authors">
+      		{{author.first_name}}, {{author.last_name}}
+      	</li> 	
+      </ul>
     </li>
   </ul>

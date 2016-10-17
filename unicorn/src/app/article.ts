@@ -3,6 +3,7 @@ import { Author } from './author';
 
 
 export class Article {
+	id : number;
 	created : number;
 	edited : number;
 	headline : string;

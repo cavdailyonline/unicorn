@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../article';
+import { ArticleService } from '../article.service';
 
 @Component({
   selector: 'app-article-list',
@@ -7,50 +8,17 @@ import { Article } from '../article';
   styleUrls: ['./article-list.component.css']
 })
 export class ArticleListComponent implements OnInit {
+	articles: Article[] = [];
+  errorMessage:string = '';
 
-	articles: Article[] = [
-		{
-			created : 4,
-			edited : 4,
-			headline : 'Luke Skywalker',
-			abstract : 'test',
-			authors : [],
-			copy : 'copy',
-			slug : 'slug',
-			status : 'true',
-			tags : [],
-			images : []
-		},
-		{
-			created : 4,
-			edited : 4,
-			headline : 'Han Solo',
-			abstract : 'test',
-			authors : [],
-			copy : 'copy',
-			slug : 'slug1',
-			status : 'true',
-			tags : [],
-			images : []
-		},
-		{
-			created : 4,
-			edited : 4,
-			headline : 'Darth Vader',
-			abstract : 'test',
-			authors : [],
-			copy : 'copy',
-			slug : 'slug2',
-			status : 'true',
-			tags : [],
-			images : []
-		},
-
-	];
-
-  constructor() { }
+  constructor(private _articleService : ArticleService) {}
 
   ngOnInit() {
+  	this._articleService
+  		.getAll()
+  		.subscribe(
+                 /* happy path */ p => this.articles = p,
+         /* error path */ e => this.errorMessage = e);
   }
 
 }
