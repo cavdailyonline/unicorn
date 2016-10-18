@@ -1,38 +1,31 @@
-[![Build Status](https://travis-ci.org/cavdailyonline/unicorn.svg?branch=develop)](https://travis-ci.org/cavdailyonline/unicorn)
-# unicorn
-Content Management System for student news publications
+# Unicorn
 
-###Brief 
-The Cavalier Daily, a student news publication at the University of Virginia, is undertaking this project to create a
-new web presence and content management system for the paper. 
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17.
 
-###Function
-We hope that this repository will eventually become a backend Django app that will handle CRUD of articles, authors, and tags. 
-Our front end will be built with AngularJS that will consume our content API mocked out with the Django REST framework.
+## Development server
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-###Getting Started
+## Code scaffolding
 
-- Install python
-- Install virtualenv https://pypi.python.org/pypi/virtualenv
-- Install virtualenvwrapper https://pypi.python.org/pypi/virtualenvwrapper/
-- Create a virtualenv using virtualenvwrapper
-    - `mkvirtualenv cavdaily`
-- Install package requirements
-    - `pip install -r requirements.txt`
-- Copy `mysite/settings/local-dist.py` into `mysite/settings/local.py` and fill in fields
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
 
-###Running Django App
+## Build
 
-- `./mysite/manage.py migrate`
-- `./mysite/manage.py runserver`
-- `./mysite/manage.py createsuperuser`
-- Go to <a href="http://localhost:8000" target="_blank">localhost:8000</a> in browser
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-###Running Angular App
-- See [unicorn sub-directory](https://github.com/cavdailyonline/unicorn/tree/develop/unicorn)
+## Running unit tests
 
-###API Docs
-- Go to  <a href="http://localhost:8000/api/" target="_blank">localhost:8000/api/</a> in browser
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-###Running tests
-- `invoke test_all`
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
+Before running the tests make sure you are serving the app via `ng serve`.
+
+## Deploying to Github Pages
+
+Run `ng github-pages:deploy` to deploy to Github Pages.
+
+## Further help
+
+To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
