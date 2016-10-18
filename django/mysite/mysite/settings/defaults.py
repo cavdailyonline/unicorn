@@ -140,6 +140,4 @@ APPEND_SLASH = True
 # CORS Configuration
 # https://github.com/ottoyiu/django-cors-headers
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:4200',
-)
+CORS_ORIGIN_ALLOW_ALL = True

@@ -35,6 +35,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
     filter_backends = (
         filters.SearchFilter,
         filters.DjangoFilterBackend,)
+    lookup_field = 'slug'
     search_fields = ('headline', 'abstract', 'copy', 'tags',)
     filter_fields = ('authors', 'status', 'tags', 'created',)
 

@@ -69,7 +69,7 @@ class GetArticleTest(APITestCase):
 
     def test_can_get_author(self):
         response = self.client.get(
-            reverse('article-detail', args=[self.article.pk]))
+            reverse('article-detail', args=[self.article.slug]))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_can_get_author_list(self):
